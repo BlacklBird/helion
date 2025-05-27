@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Black Box</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-shadow: 0 0 10px #a0f, 0 0 20px #0ff;
+      animation: glitch 1.5s infinite;
+    }
+
+    .hint {
+      margin-top: 20px;
+      color: #777;
+      font-style: italic;
+      max-width: 400px;
+      text-align: center;
+      font-size: 0.95em;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-1px, 1px); }
+      80% { transform: translate(1px, -1px); }
+      100% { transform: translate(0); }
+    }
+  </style>
+  <script>
+    window.onload = () => {
+      const password = "Ouroboros";
+      const userInput = prompt("Mot de passe requis pour entrer dans la CHAMBRE NOIRE :");
+      if (userInput !== password) {
+        document.querySelector('h1').innerText = "⛔ Accès refusé";
+        const hint = document.createElement('div');
+        hint.className = 'hint';
+        hint.innerHTML = "Indice : Au lieu d'être gourmand, cherchez la boîte… au risque de vous mordre la queue.";
+        document.body.appendChild(hint);
+      } else {
+        window.location.href = "confrerie.html";
+      }
+    };
+  </script>
+</head>
+<body>
+  <h1>Black Box</h1>
+</body>
+</html>
